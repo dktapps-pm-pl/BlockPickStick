@@ -1,0 +1,13 @@
+name: BlockPickStick
+main: dktapps\BlockPickStick\Main
+version: 0.0.1
+api: 4.0.0
+commands:
+ bpstick:
+  description: "Skeleton plugin example command"
+  usage: "/bpstick"
+  permission: bpstick.command
+permissions:
+ bpstick.command:
+  default: true
+  description: "Allows using /bpstick"
