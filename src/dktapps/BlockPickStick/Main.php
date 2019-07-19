@@ -8,8 +8,7 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\event\EventPriority;
 use pocketmine\event\player\PlayerInteractEvent;
-use pocketmine\item\Item;
-use pocketmine\item\ItemFactory;
+use pocketmine\item\VanillaItems;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
@@ -29,7 +28,7 @@ class Main extends PluginBase{
 		switch($command->getName()){
 			case "bpstick":
 				if($sender instanceof Player){
-					$item = ItemFactory::get(Item::STICK)->setCustomName("Block Picker");
+					$item = VanillaItems::STICK()->setCustomName("Block Picker");
 					$item->getNamedTag()->setByte("bpstick", 1);
 					if(empty($sender->getInventory()->addItem($item))){
 						$sender->sendMessage("Given you a block-picking stick");
