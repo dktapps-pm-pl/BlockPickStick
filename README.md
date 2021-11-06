@@ -3,7 +3,7 @@ Mobile devices are not able to block-pick in Minecraft due to the fact they don'
 Thanks to API improvements during PocketMine-MP 4.0 development, you can now use this plugin instead.
 
 ## Requirements
-- PocketMine-MP 4.0 @ d456cb24196b5bffe595de5a12dff0b45709f528 or newer
+- PocketMine-MP 4.0.0-BETA11 or newer
 
 ## Commands
 | Command | Permission | Description |
