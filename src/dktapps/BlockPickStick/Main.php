@@ -17,9 +17,9 @@ class Main extends PluginBase{
 
 	public function onEnable() : void{
 		$this->getServer()->getPluginManager()->registerEvent(PlayerInteractEvent::class, function(PlayerInteractEvent $e){
-			if($e->getAction() === PlayerInteractEvent::RIGHT_CLICK_BLOCK and $e->getItem()->getNamedTag()->hasTag("bpstick")){
-				$e->setCancelled();
-				$e->getPlayer()->pickBlock($e->getBlock(), false);
+			if($e->getAction() === PlayerInteractEvent::RIGHT_CLICK_BLOCK and $e->getItem()->getNamedTag()->getTag("bpstick") !== null){
+				$e->cancel();
+				$e->getPlayer()->pickBlock($e->getBlock()->getPosition(), false);
 			}
 		}, EventPriority::NORMAL, $this, false);
 	}
@@ -30,7 +30,7 @@ class Main extends PluginBase{
 				if($sender instanceof Player){
 					$item = VanillaItems::STICK()->setCustomName("Block Picker");
 					$item->getNamedTag()->setByte("bpstick", 1);
-					if(empty($sender->getInventory()->addItem($item))){
+					if(count($sender->getInventory()->addItem($item)) === 0){
 						$sender->sendMessage("Given you a block-picking stick");
 					}else{
 						$sender->sendMessage(TextFormat::RED . "Your inventory is full");
